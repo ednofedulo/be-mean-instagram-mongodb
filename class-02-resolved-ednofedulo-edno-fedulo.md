@@ -2,31 +2,30 @@
 autor: Edno Fedulo
 
 ##Criar database
-´´´
+```
 ubuntu-VirtualBox(mongod-3.0.7) test> use be-mean-pokemons
 switched to db be-mean-pokemons
-´´´
+```
 ##Listar databases
-´´´
+```
 ubuntu-VirtualBox(mongod-3.0.7) be-mean-pokemons> show dbs
 be-mean  0.078GB
 local    0.078GB
-´´´
+```
 ##Listar coleções
 
-´´´
+```
 ubuntu-VirtualBox(mongod-3.0.7) be-mean-pokemons> show collections
-´´´
+```
 ##Inserir pelo menos 5 pokemons
-´´´
+```
 ubuntu@ubuntu-VirtualBox:~$ mongoimport --db be-mean-pokemons --collection pokemons --drop --file /home/ubuntu/Desktop/pokemons.json --jsonArray
 2015-11-11T13:22:09.085-0300	connected to: localhost
 2015-11-11T13:22:09.085-0300	dropping: be-mean-pokemons.pokemons
 2015-11-11T13:22:09.229-0300	imported 6 documents
-
-´´´
+```
 ##Lisar pokemons existentes
-´´´
+```
 ubuntu-VirtualBox(mongod-3.0.7) test> use be-mean-pokemons
 switched to db be-mean-pokemons
 ubuntu-VirtualBox(mongod-3.0.7) be-mean-pokemons> show collections
@@ -82,10 +81,9 @@ ubuntu-VirtualBox(mongod-3.0.7) be-mean-pokemons> db.pokemons.find()
   "description": "Kingler has an enormous, oversized claw. It waves this huge claw in the air to communicate with others. However, because the claw is so heavy, the Pokémon quickly tires."
 }
 Fetched 6 record(s) in 4ms
-
-´´´
+```
 ##Selecionar pokemon pelo nome e armazenar na variavel poke
-´´´
+```
 ubuntu-VirtualBox(mongod-3.0.7) be-mean-pokemons> var poke = db.pokemons.findOne({name: "Kingler"})
 ubuntu-VirtualBox(mongod-3.0.7) be-mean-pokemons> poke
 {
@@ -96,10 +94,9 @@ ubuntu-VirtualBox(mongod-3.0.7) be-mean-pokemons> poke
   "height": 1.3,
   "description": "Kingler has an enormous, oversized claw. It waves this huge claw in the air to communicate with others. However, because the claw is so heavy, the Pokémon quickly tires."
 }
-
-´´´
+```
 ##Modificar o campo description e salvar
-´´´
+```
 ubuntu-VirtualBox(mongod-3.0.7) be-mean-pokemons> poke.descriptio = "descricao alterada"
 descricao alterada
 ubuntu-VirtualBox(mongod-3.0.7) be-mean-pokemons> db.pokemons.save(poke)
@@ -120,5 +117,4 @@ ubuntu-VirtualBox(mongod-3.0.7) be-mean-pokemons> poke
   "description": "Kingler has an enormous, oversized claw. It waves this huge claw in the air to communicate with others. However, because the claw is so heavy, the Pokémon quickly tires.",
   "descriptio": "descricao alterada"
 }
-
-´´´
+```
